@@ -1,0 +1,51 @@
+<%- include("header") -%>
+<body>
+
+    <div class="box" id="heading">
+        <h1>
+            <%= listTitle %>
+        </h1>
+    </div>
+
+    <div class="box">
+        <% for( let i=0; i < newListItems.length; i++ ) { %>
+            <div class="item">
+              <form action="/delete" method="post">
+                <input type="checkbox" class="check" >
+              <p><button name="cross" class="cross" type="checkbox" value=<%= i %>>x</button>
+                      <%= newListItems[i] %>
+              </p>
+              </form>
+            </div>
+            <% } %>
+
+                <form action="/" method="post">
+                    <input type="text" name="newItem" id="" placeholder="New Task" autocomplete="off">
+                    <button name="List" type="submit" value=<%= listTitle %>>+</button>
+                </form>
+    </div>
+    <div class="box">
+
+        <% for( let i=0; i < finishedItems.length; i++ ) { %>
+            <div class="item">
+                <input type="checkbox" checked >
+                <p>
+                    <%= finishedItems[i] %>
+                </p>
+
+            </div>
+           
+             
+            <% } %>
+
+          
+    </div>
+
+   
+
+
+
+
+</body>
+<%- include("footer") -%>
+
