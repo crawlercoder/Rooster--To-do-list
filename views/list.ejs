@@ -1,51 +1,65 @@
 <%- include("header") -%>
-<body>
 
-    <div class="box" id="heading">
-        <h1>
-            <%= listTitle %>
-        </h1>
-    </div>
+    <body>
 
-    <div class="box">
-        <% for( let i=0; i < newListItems.length; i++ ) { %>
-            <div class="item">
-              <form action="/delete" method="post">
-                <input type="checkbox" class="check" >
-              <p><button name="cross" class="cross" type="checkbox" value=<%= i %>>x</button>
-                      <%= newListItems[i] %>
-              </p>
-              </form>
-            </div>
-            <% } %>
+        <div class="box" id="heading">
+            <h1>
+                <%= listTitle %> |
+                    <%= Time %>
+            </h1>
+        </div>
 
-                <form action="/" method="post">
-                    <input type="text" name="newItem" id="" placeholder="New Task" autocomplete="off">
-                    <button name="List" type="submit" value=<%= listTitle %>>+</button>
-                </form>
-    </div>
-    <div class="box">
+        <div class="box">
+            <% for( let i=0; i < newListItems.length; i++ ) { %>
+                <div class="item">
+                    <form action="/delete" method="post">
+                        <!-- <input type="checkbox" class="check" style="border: 2px solid hotpink;"> -->
+                        <p><button name="cross" class="cross" type="checkbox" value=<%=[i,listTitle] %>>x</button>
+                            <%= newListItems[i] %>
+                        </p>
+                    </form>
+                </div>
+                <% } %>
 
-        <% for( let i=0; i < finishedItems.length; i++ ) { %>
-            <div class="item">
-                <input type="checkbox" checked >
-                <p>
-                    <%= finishedItems[i] %>
-                </p>
+                    <form action="/" method="post">
+                        <input type="text" name="newItem" id="" placeholder="New Task" autocomplete="off">
+                        <button name="List" type="submit" value=<%=listTitle %>>+</button>
+                    </form>
 
-            </div>
-           
-             
-            <% } %>
+        </div>
+        <div class="box">
 
-          
-    </div>
+            <% for( let i=0; i < finishedItems.length; i++ ) { %>
+                <div class="item finisheditem">
+                    <form action="/readd" class="readd" method="post">
+                        <!-- <input type="checkbox" class="check" checked > -->
 
-   
+                        <p><button name="cross" class="cross" type="checkbox" value=<%=[i,listTitle] %> >-</button>
+                            <%= finishedItems[i] %>
+                        </p>
+                    </form>
+                    <form action="/pdel" class="pedl" method="post">
+                        <p class="del-p"> 
+                            <button name="dash" class="dash" type="checkbox" value=<%=[i,listTitle] %> >
+                                <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                <lord-icon src="https://cdn.lordicon.com/kfzfxczd.json" trigger="hover"
+                                    colors="primary:#e83a30" style="width:25px;height:25px">
+                                </lord-icon>
+                            </button>
+                        </p>
+                    </form>
+                </div>
+
+
+                <% } %>
+
+
+        </div>
 
 
 
 
-</body>
-<%- include("footer") -%>
 
+
+    </body>
+    <%- include("footer") -%>

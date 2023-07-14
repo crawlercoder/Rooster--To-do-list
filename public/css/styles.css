@@ -24,7 +24,7 @@ h1 {
 
 #heading {
   /* margin-top: 50px; */
-  padding: 0;
+  padding: 0 1em;
   border-radius: 30px;
   background-color: #2C3539;
   text-align: center;
@@ -33,9 +33,10 @@ h1 {
 .item {
   min-height: 70px;
   display: flex;
-  align-items: center;
-  /* margin-top: -80px; */
+  align-items: flex-end;
+  /* padding: auto 0; */
   border-bottom: 1px solid #F1F1F1;
+  justify-content: flex-start;
 }
 
 .item:last-child {
@@ -45,33 +46,76 @@ h1 {
   margin-top: 50px;
 } */
 
-input:checked+p {
+
+.finisheditem{
   text-decoration: line-through;
   text-decoration-color: #2C3539;
 }
 
-input[type="checkbox"] {
-  margin: 20px;
-}
 
 .item form{
   margin-top: -50px;
   margin-bottom: -10px;
 }
 
-input[class="check"]{
-  visibility: hidden;
-}
+
 .cross{
   border-radius: 50%;
-  /* border:2px solid #00204a ; */
-  /* background-color: #B6B6B4; */
   border: none;
   background: transparent;
   color:#00204a;
   font-size: 20px;
 }
 
+
+ .dash{
+  bottom: 0;
+  left: 0em;
+  position: absolute;
+  border-radius: 0%;
+  padding: 10em;
+  background: transparent;
+  border: none;
+  color:#00204a;
+  font-size: 20px;
+  margin: 0;  
+  padding: 0px;
+  /* visibility:hidden; */
+}
+
+.pedl p{
+  position: relative;
+  /* right: -8em; */
+  bottom: 0;
+  width: 10px;
+}
+
+.readd{
+  /* height: 9vh; */
+  position: relative;
+  /* bottom: 1em; */
+  text-align: left;
+  width: 75%;
+  /* border: 2px solid hotpink; */
+
+}
+.pedl{
+  position: relative;
+  bottom: 1em;
+  width: 50%;
+  text-align: right;
+  overflow: hidden;
+  /* border: 2px solid hotpink; */
+}
+
+.finisheditem:hover .del-p{
+  right: -4em;
+  transition:.3s;
+}
+.del-p{
+  right: -8em;
+  transition:.3s;
+}
 p {
   margin: 0;
   padding: 20px;
@@ -89,8 +133,8 @@ button {
   min-height: 50px;
   width: 50px;
   border-radius: 50%;
-  border:2px solid #00204a ;
-  background-color: #B6B6B4;
+  /* border:2px solid #00204a ; */
+  background-color: transparent;
   color:#00204a;
   font-size: 30px;
 }
@@ -120,4 +164,14 @@ footer {
   color: white;
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
+}
+
+
+@keyframes slide-left {
+  from {
+    margin-left: 100%;
+  }
+  to {
+    margin-left: 0%;
+  }
 }
