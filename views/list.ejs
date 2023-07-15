@@ -2,10 +2,14 @@
 
     <body>
 
+        <div class="box" id="time">
+            <h1>
+                <%= Time %>
+            </h1>
+        </div>
         <div class="box" id="heading">
             <h1>
-                <%= listTitle %> |
-                    <%= Time %>
+                <%= listTitle %>
             </h1>
         </div>
 
@@ -39,7 +43,7 @@
                         </p>
                     </form>
                     <form action="/pdel" class="pedl" method="post">
-                        <p class="del-p"> 
+                        <p class="del-p">
                             <button name="dash" class="dash" type="checkbox" value=<%=[i,listTitle] %> >
                                 <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
                                 <lord-icon src="https://cdn.lordicon.com/kfzfxczd.json" trigger="hover"
