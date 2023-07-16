@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&family=Qwigley&display=swap');
 html {
   background: #abbaab;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to top, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
@@ -13,19 +14,22 @@ h1 {
   padding: 10px;
 }
 
+
 .box {
   /* max-width: 400px; */
   max-width: 25em;
-  margin: 50px auto;
+  /* width: 50%; */
+  margin: 5px auto;
   padding: 2px;
   background: white;
   border-radius: 10px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  /* overflow-y: scroll; */
 }
 
 #time {
   /* margin-top: 50px; */
-  max-width: 30em;
+  width: 30em;
   padding: 0;
   border-radius: 30px;
   margin: 1em auto;
@@ -42,6 +46,30 @@ h1 {
   border-radius: 30px;
   background-color: #2C3539;
   text-align: center;
+}
+
+#quote{
+  max-width: 70em;
+  /* width: 50em; */
+
+  background: white;
+  text-align: center;
+  border-radius: 10px;
+  margin: 20px auto;
+  font-family: 'Playfair Display SC', serif;
+  padding: 1em;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+#quote h3{
+  text-align: left;
+  margin: 0px;  
+}
+#quote p{
+  padding: 7px;  
+}
+#quote span{
+  text-align: right; 
+  /* margin: 0px; */
 }
 
 .item {

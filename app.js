@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const date = require(__dirname + "/date.js");
+const https = require("https");
 
 const app = express();
 const items = ["Hello there! enter your task"];
@@ -13,11 +14,25 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"))
 
 //Get Request
+const url = "https://api.themotivate365.com/stoic-quote"
 
 app.get("/", function (req, res) {
 
     let day = date.getDate();
-    res.render("list", { Time:day, listTitle: "Home List", newListItems: items, finishedItems: finishedItems })
+    https.get(url, function (response) {
+        console.log(response.statusCode);
+        // console.log(response);
+        response.on("data", function (data) {
+            const quoteData = JSON.parse(data);
+            const quote=quoteData.quote;
+            const author=quoteData.author;
+            res.render("list", { Time:day, listTitle: "Home List", newListItems: items, finishedItems: finishedItems,quote:quote,author:author })
+        })
+       
+    })
+
+   
+    
 
 });
 
@@ -25,7 +40,18 @@ app.get("/", function (req, res) {
 app.get("/work", (req, res) => {
 
     let day = date.getDate();
-    res.render("list", { Time:day, listTitle: "Work List", newListItems: workItems,finishedItems: workFinished })
+    https.get(url, function (response) {
+        console.log(response.statusCode);
+        // console.log(response);
+        response.on("data", function (data) {
+            const quoteData = JSON.parse(data);
+            const quote=quoteData.quote;
+            const author=quoteData.author;
+            res.render("list", { Time:day, listTitle: "Work List", newListItems: workItems,finishedItems: workFinished,quote:quote,author:author })
+        })
+       
+    })
+   
 
 })
 

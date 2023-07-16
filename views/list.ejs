@@ -2,17 +2,17 @@
 
     <body>
 
-        <div class="box" id="time">
+        <div  id="time">
             <h1>
                 <%= Time %>
             </h1>
         </div>
-        <div class="box" id="heading">
+        <div  id="heading">
             <h1>
                 <%= listTitle %>
             </h1>
         </div>
-
+        
         <div class="box">
             <% for( let i=0; i < newListItems.length; i++ ) { %>
                 <div class="item">
@@ -58,6 +58,17 @@
                 <% } %>
 
 
+        </div>
+
+        <div id="quote">
+            <h3>Quote </h3>
+            <p>"
+            <%= quote %>" 
+        </p>
+            <br> 
+            - <span><%= author %></span>
+           
+          
         </div>
 
 
