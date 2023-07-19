@@ -14,26 +14,22 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"))
 
 //Get Request
+
 const url = "https://api.themotivate365.com/stoic-quote"
 
 app.get("/", function (req, res) {
 
     let day = date.getDate();
     https.get(url, function (response) {
+      
         console.log(response.statusCode);
-        // console.log(response);
         response.on("data", function (data) {
             const quoteData = JSON.parse(data);
-            const quote=quoteData.quote;
-            const author=quoteData.author;
-            res.render("list", { Time:day, listTitle: "Home List", newListItems: items, finishedItems: finishedItems,quote:quote,author:author })
+            const quote = quoteData.quote;
+            const author = quoteData.author;
+            res.render("list", { Time: day, listTitle: "Home List", newListItems: items, finishedItems: finishedItems, quote: quote, author: author })
         })
-       
     })
-
-   
-    
-
 });
 
 
@@ -42,37 +38,33 @@ app.get("/work", (req, res) => {
     let day = date.getDate();
     https.get(url, function (response) {
         console.log(response.statusCode);
-        // console.log(response);
         response.on("data", function (data) {
             const quoteData = JSON.parse(data);
-            const quote=quoteData.quote;
-            const author=quoteData.author;
-            res.render("list", { Time:day, listTitle: "Work List", newListItems: workItems,finishedItems: workFinished,quote:quote,author:author })
+            const quote = quoteData.quote;
+            const author = quoteData.author;
+            res.render("list", { Time: day, listTitle: "Work List", newListItems: workItems, finishedItems: workFinished, quote: quote, author: author })
         })
-       
     })
-   
-
 })
 
 app.get("/about", (req, res) => {
-
     res.render("about")
-
 })
- 
+
 //Post
 
 app.post("/", function (req, res) {
+
     console.log("hello");
     let item = req.body.newItem;
     if (req.body.List === "Work") {
         workItems.push(item);
         res.redirect("/work");
-    } else  {
+    } else {
         items.push(item);
         res.redirect("/");
     }
+
 });
 
 app.post("/work", function (req, res) {
@@ -80,64 +72,59 @@ app.post("/work", function (req, res) {
     let item = req.body.newItem;
     workItems.push(item);
     res.redirect("/work");
+
 });
 
 app.post("/delete", function (req, res) {
 
     console.log(req.body.cross);
-    // console.log(req.body.cross[4]);
 
-    if(req.body.cross[2]=="H"){
+    if (req.body.cross[2] == "H") {
+        var idx = req.body.cross[0];
+        let elem = items[idx];
+        items.splice(idx, 1);
+        finishedItems.push(elem);
+        res.redirect("/");
+    } else {
+        var idx = req.body.cross[0];
+        let elem = workItems[idx];
+        workItems.splice(idx, 1);
+        workFinished.push(elem);
+        res.redirect("/work");
+    }
 
-    var idx = req.body.cross[0];
-    let elem = items[idx];
-    items.splice(idx, 1);
-    finishedItems.push(elem);
-    res.redirect("/");
-
-    } else{
-
-    var idx = req.body.cross[0];
-    let elem = workItems[idx];
-    workItems.splice(idx, 1);
-    workFinished.push(elem);
-    res.redirect("/work");
-    } 
-    
 })
 
-app.post("/readd", function(req,res){
-    if(req.body.cross[2]=="H"){
+app.post("/readd", function (req, res) {
 
+    if (req.body.cross[2] == "H") {
         var idx = req.body.cross[0];
         let elem = finishedItems[idx];
         finishedItems.splice(idx, 1);
         items.push(elem);
         res.redirect("/");
-    
-        } else{
-    
+    } else {
         var idx = req.body.cross[0];
         let elem = workFinished[idx];
         workFinished.splice(idx, 1);
         workItems.push(elem);
         res.redirect("/work");
-        } 
-})
-app.post("/pdel", function(req,res){
-    
-    if(req.body.dash[2]=="H"){
+    }
 
+})
+
+app.post("/pdel", function (req, res) {
+
+    if (req.body.dash[2] == "H") {
         var idx = req.body.dash[0];
         finishedItems.splice(idx, 1);
         res.redirect("/");
-    
-        } else{
-    
+    } else {
         var idx = req.body.dash[0];
         workFinished.splice(idx, 1);
         res.redirect("/work");
-        } 
+    }
+
 })
 
 app.listen(3000, function () {

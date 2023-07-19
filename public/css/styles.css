@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&family=Qwigley&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC&family=Qwigley&display=swap");
+
 html {
-  background: #abbaab;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+  background: #abbaab; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #ffffff,#abbaab
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top,#ffffff,#abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   min-height: 1000px;
-  font-family: 'helvetica neue';
+  font-family: "helvetica neue";
   /* overflow: hiddersn; */
 }
 
@@ -14,150 +15,6 @@ h1 {
   padding: 10px;
 }
 
-
-.box {
-  /* max-width: 400px; */
-  max-width: 25em;
-  /* width: 50%; */
-  margin: 5px auto;
-  padding: 2px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
-  /* overflow-y: scroll; */
-}
-
-#time {
-  /* margin-top: 50px; */
-  width: 30em;
-  padding: 0;
-  border-radius: 30px;
-  margin: 1em auto;
-  background-color: #22272a;
-  text-align: center;
-  font-weight: lighter;
-  
-}
-#heading {
-  /* margin-top: 50px; */
-  width: 15em;
-  margin: 1em auto;
-  padding: 0;
-  border-radius: 30px;
-  background-color: #2C3539;
-  text-align: center;
-}
-
-#quote{
-  max-width: 70em;
-  /* width: 50em; */
-
-  background: white;
-  text-align: center;
-  border-radius: 10px;
-  margin: 20px auto;
-  font-family: 'Playfair Display SC', serif;
-  padding: 1em;
-  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
-}
-#quote h3{
-  text-align: left;
-  margin: 0px;  
-}
-#quote p{
-  padding: 7px;  
-}
-#quote span{
-  text-align: right; 
-  /* margin: 0px; */
-}
-
-.item {
-  min-height: 70px;
-  display: flex;
-  align-items: flex-end;
-  /* padding: auto 0; */
-  border-bottom: 1px solid #F1F1F1;
-  justify-content: flex-start;
-}
-
-.item:last-child {
-  border-bottom: 0;
-}
-/* .item:first-child {
-  margin-top: 50px;
-} */
-
-
-.finisheditem{
-  text-decoration: line-through;
-  text-decoration-color: #2C3539;
-}
-
-
-.item form{
-  margin-top: -50px;
-  margin-bottom: -10px;
-}
-
-
-.cross{
-  border-radius: 50%;
-  border: none;
-  background: transparent;
-  color:#00204a;
-  font-size: 20px;
-}
-
-
- .dash{
-  bottom: 0;
-  left: 0em;
-  position: absolute;
-  border-radius: 0%;
-  padding: 10em;
-  background: transparent;
-  border: none;
-  color:#00204a;
-  font-size: 20px;
-  margin: 0;  
-  padding: 0px;
-  /* visibility:hidden; */
-}
-
-.pedl p{
-  position: relative;
-  /* right: -8em; */
-  bottom: 0;
-  width: 10px;
-}
-
-.readd{
-  /* height: 9vh; */
-  position: relative;
-  /* bottom: 1em; */
-  text-align: left;
-  width: 75%;
-  /* border: 2px solid hotpink; */
-
-}
-.pedl{
-  position: relative;
-  bottom: 1em;
-  width: 50%;
-  text-align: right;
-  overflow: hidden;
-  /* border: 2px solid hotpink; */
-}
-
-.finisheditem:hover .del-p{
-  right: -4em;
-  transition:.3s;
-}
-.del-p{
-  right: -8em;
-  transition:.3s;
-}
 p {
   margin: 0;
   padding: 20px;
@@ -177,7 +34,7 @@ button {
   border-radius: 50%;
   /* border:2px solid #00204a ; */
   background-color: transparent;
-  color:#00204a;
+  color: #00204a;
   font-size: 30px;
 }
 
@@ -197,6 +54,151 @@ input[type="text"]:focus {
   box-shadow: inset 0 -3px 0 0 #00204a;
 }
 
+#time {
+  /* margin-top: 50px; */
+  width: 30em;
+  padding: 0;
+  border-radius: 30px;
+  margin: 1em auto;
+  background-color: #22272a;
+  text-align: center;
+  font-weight: lighter;
+}
+
+#heading {
+  /* margin-top: 50px; */
+  width: 15em;
+  margin: 1em auto;
+  padding: 0;
+  border-radius: 30px;
+  background-color: #2c3539;
+  text-align: center;
+}
+
+.box {
+  /* max-width: 400px; */
+  max-width: 25em;
+  /* width: 50%; */
+  margin: 1em auto;
+  padding: 2px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  /* overflow-y: scroll; */
+}
+
+.readd {
+  /* height: 9vh; */
+  position: relative;
+  /* bottom: 1em; */
+  text-align: left;
+  width: 75%;
+  /* border: 2px solid hotpink; */
+}
+
+.pedl {
+  position: relative;
+  bottom: 1em;
+  width: 50%;
+  text-align: right;
+  overflow: hidden;
+  /* border: 2px solid hotpink; */
+}
+
+.del-p {
+  right: -8em;
+  transition: 0.3s;
+}
+
+.pedl p {
+  position: relative;
+  /* right: -8em; */
+  bottom: 0;
+  width: 10px;
+}
+
+.item {
+  min-height: 70px;
+  display: flex;
+  align-items: flex-end;
+  /* padding: auto 0; */
+  border-bottom: 1px solid #f1f1f1;
+  justify-content: flex-start;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+/* .item:first-child {
+  margin-top: 50px;
+} */
+
+.finisheditem {
+  text-decoration: line-through;
+  text-decoration-color: #2c3539;
+}
+
+.item form {
+  margin-top: -50px;
+  margin-bottom: -10px;
+}
+
+.cross {
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: #00204a;
+  font-size: 20px;
+}
+
+.dash {
+  bottom: 0;
+  left: 0em;
+  position: absolute;
+  border-radius: 0%;
+  padding: 10em;
+  background: transparent;
+  border: none;
+  color: #00204a;
+  font-size: 20px;
+  margin: 0;
+  padding: 0px;
+  /* visibility:hidden; */
+}
+
+.finisheditem:hover .del-p {
+  right: -4em;
+  transition: 0.3s;
+}
+
+#quote {
+  max-width: 70em;
+  /* width: 50em; */
+  background: white;
+  text-align: center;
+  border-radius: 10px;
+  margin: 20px auto;
+  font-family: "Playfair Display SC", serif;
+  padding: 1em;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+#quote h3 {
+  text-align: left;
+  margin: 0px;
+}
+
+#quote p {
+  padding: 7px;
+}
+
+#quote span {
+  text-align: right;
+  /* margin: 0px; */
+}
+
+
+
 ::placeholder {
   color: grey;
   opacity: 1;
@@ -208,7 +210,7 @@ footer {
   text-align: center;
 }
 
-
+/* animation */
 @keyframes slide-left {
   from {
     margin-left: 100%;
